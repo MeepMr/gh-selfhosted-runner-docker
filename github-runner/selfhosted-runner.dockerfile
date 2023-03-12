@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM docker:dind
 
 ENV GH_TOKEN="<Runner-Access-Token>"
 ENV GH_OWNER="<Repository-Owner>"
