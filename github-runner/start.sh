@@ -7,7 +7,7 @@ GH_TOKEN=$GH_TOKEN
 RUNNER_SUFFIX=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 5 | head -n 1)
 RUNNER_NAME=$RUNNER_NAME
 
-cd /home/docker/actions-runner
+cd /home/runner/actions-runner
 
 ./config.sh --unattended --url https://github.com/${GH_OWNER}/${GH_REPOSITORY} --token ${GH_TOKEN} --name ${RUNNER_NAME}
 
