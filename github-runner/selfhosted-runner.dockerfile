@@ -28,6 +28,6 @@ RUN chown -R docker ~docker && /home/docker/actions-runner/bin/installdependenci
 ADD start.sh start.sh
 RUN chmod +x start.sh
 
-USER runner
+USER docker
 
 ENTRYPOINT ["./start.sh"]
