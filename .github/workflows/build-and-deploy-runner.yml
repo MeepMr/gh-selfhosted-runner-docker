@@ -49,6 +49,7 @@ jobs:
   deploy:
     environment: vps-1
     name: "Deployment to VPS-1 started"
+    needs: build-github-runner-image
     runs-on: ubuntu-latest
     steps:
       - name: Configure SSH
