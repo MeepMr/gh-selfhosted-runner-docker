@@ -17,7 +17,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/doc
 RUN apt-get update
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-RUN useradd -m -G docker docker
+RUN useradd -m -g docker docker
 
 RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
     && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
