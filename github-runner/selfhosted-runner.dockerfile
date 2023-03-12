@@ -17,13 +17,13 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/doc
 RUN apt-get update
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-RUN useradd -m runner
+RUN useradd -m -G docker docker
 
-RUN cd /home/runner && mkdir actions-runner && cd actions-runner \
+RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
     && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
     && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
 
-RUN chown -R runner ~runner && /home/runner/actions-runner/bin/installdependencies.sh
+RUN chown -R runner ~runner && /home/docker/actions-runner/bin/installdependencies.sh
 
 ADD start.sh start.sh
 RUN chmod +x start.sh
