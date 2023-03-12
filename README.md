@@ -1,5 +1,5 @@
-# gh-selfhosted-runner-docker
-This is a docker-image to host GitHub-Action-Runners inside docker.
+# Self-Hosted GitHub-Actions-Runner inside a docker-container
+This is a Repository provides a docker-image to host GitHub-Action-Runners inside the docker-runtime.
 Docker-Container requires the docker-socket to be passed into it in order to be able to build docker images using GitHub Actions.
 
 Upon startup, the container generates itself a Token for a Actions-Runner and registers itself within the provided repository.
