@@ -43,7 +43,8 @@ jobs:
           build-args:
             - RUNNER_VERSION: ${{ needs.get-runner-version.outputs.version-no}}
           tags: |
-            ghcr.io/meepmr/${{ inputs.discord-interface-container-name }}:latest
+            ghcr.io/meepmr/gh-action-runner:latest
+            ghcr.io/meepmr/gh-action-runner:${{ needs.get-runner-version.outputs.version-no}}
 
   deploy:
     environment: vps-1
