@@ -8,7 +8,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 ARG RUNNER_VERSION="<Runner-Version>"
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y --no-install-recommends curl nodejs wget unzip vim git jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev python3-pip
+
+# Install util
+RUN apt-get install -y curl wget unzip vim git jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev python3-pip
+
+RUN apt-get install -y nodejs npm
 
 # Install Docker
 RUN apt-get install -y ca-certificates curl gnupg lsb-release
@@ -17,6 +21,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/doc
 RUN apt-get update
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+# Install and configure GitHub runner
 RUN useradd -m -g docker docker
 
 RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
